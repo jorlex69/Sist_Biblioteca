@@ -11,6 +11,8 @@ namespace Sist_Biblioteca
             InitializeComponent();
         }
 
+        //hola
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text))
