@@ -1,6 +1,6 @@
 ﻿namespace Sist_Biblioteca.Diseños
 {
-    partial class frmpresta
+    partial class frmtrabj
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button6 = new Button();
             dataGridView1 = new DataGridView();
             groupBox2 = new GroupBox();
             button5 = new Button();
@@ -46,30 +47,39 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            button6 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
+            // button6
+            // 
+            button6.BackColor = Color.Red;
+            button6.Location = new Point(752, 15);
+            button6.Name = "button6";
+            button6.Size = new Size(36, 27);
+            button6.TabIndex = 16;
+            button6.Text = "X";
+            button6.UseVisualStyleBackColor = false;
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(26, 238);
+            dataGridView1.Location = new Point(18, 242);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(754, 193);
-            dataGridView1.TabIndex = 18;
+            dataGridView1.TabIndex = 15;
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(button5);
             groupBox2.Controls.Add(textBox6);
             groupBox2.Controls.Add(label6);
-            groupBox2.Location = new Point(473, 143);
+            groupBox2.Location = new Point(465, 147);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(307, 71);
-            groupBox2.TabIndex = 17;
+            groupBox2.TabIndex = 14;
             groupBox2.TabStop = false;
             groupBox2.Text = "Buscar";
             // 
@@ -112,10 +122,10 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(20, 20);
+            groupBox1.Location = new Point(12, 24);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(430, 197);
-            groupBox1.TabIndex = 16;
+            groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
             // 
@@ -219,17 +229,7 @@
             label1.TabIndex = 0;
             label1.Text = "Nombre";
             // 
-            // button6
-            // 
-            button6.BackColor = Color.Red;
-            button6.Location = new Point(752, 12);
-            button6.Name = "button6";
-            button6.Size = new Size(36, 27);
-            button6.TabIndex = 19;
-            button6.Text = "X";
-            button6.UseVisualStyleBackColor = false;
-            // 
-            // frmpresta
+            // frmtrabj
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -239,8 +239,8 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "frmpresta";
-            Text = "frmpresta";
+            Name = "frmtrabj";
+            Text = "frmtrabj";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
@@ -251,6 +251,7 @@
 
         #endregion
 
+        private Button button6;
         private DataGridView dataGridView1;
         private GroupBox groupBox2;
         private Button button5;
@@ -269,6 +270,5 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button button6;
     }
 }

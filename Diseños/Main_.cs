@@ -19,8 +19,8 @@ namespace Sist_Biblioteca.Diseños
 
         private void btncerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Form1 form1 = new Form1();
+         
+            sure_ form1 = new sure_();
             form1.ShowDialog();
         }
 
