@@ -35,6 +35,8 @@
             textBox6 = new TextBox();
             label6 = new Label();
             groupBox1 = new GroupBox();
+            textBox5 = new TextBox();
+            label4 = new Label();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
@@ -65,19 +67,24 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(18, 242);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(754, 193);
             dataGridView1.TabIndex = 11;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(button5);
             groupBox2.Controls.Add(textBox6);
             groupBox2.Controls.Add(label6);
-            groupBox2.Location = new Point(465, 147);
+            groupBox2.Location = new Point(465, 24);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(307, 71);
             groupBox2.TabIndex = 10;
@@ -92,10 +99,11 @@
             button5.TabIndex = 6;
             button5.Text = "Buscar";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(62, 23);
+            textBox6.Location = new Point(63, 26);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(121, 23);
             textBox6.TabIndex = 1;
@@ -105,12 +113,14 @@
             label6.AutoSize = true;
             label6.Location = new Point(13, 29);
             label6.Name = "label6";
-            label6.Size = new Size(43, 15);
+            label6.Size = new Size(17, 15);
             label6.TabIndex = 0;
-            label6.Text = "Correo";
+            label6.Text = "Id";
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(textBox5);
+            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
@@ -130,6 +140,22 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
             // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(148, 95);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(136, 23);
+            textBox5.TabIndex = 15;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(106, 103);
+            label4.Name = "label4";
+            label4.Size = new Size(24, 15);
+            label4.TabIndex = 14;
+            label4.Text = "Rol";
+            // 
             // button4
             // 
             button4.Location = new Point(330, 123);
@@ -138,6 +164,7 @@
             button4.TabIndex = 13;
             button4.Text = "Eliminar";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -147,6 +174,7 @@
             button3.TabIndex = 12;
             button3.Text = "Editar";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -169,14 +197,14 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(148, 123);
+            textBox4.Location = new Point(148, 153);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(136, 23);
             textBox4.TabIndex = 8;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(148, 94);
+            textBox3.Location = new Point(148, 124);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(136, 23);
             textBox3.TabIndex = 7;
@@ -198,7 +226,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 127);
+            label5.Location = new Point(6, 157);
             label5.Name = "label5";
             label5.Size = new Size(124, 15);
             label5.TabIndex = 4;
@@ -207,7 +235,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(63, 97);
+            label3.Location = new Point(63, 127);
             label3.Name = "label3";
             label3.Size = new Size(67, 15);
             label3.TabIndex = 2;
@@ -243,6 +271,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "add_users";
             Text = "add_users";
+            Load += add_users_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
@@ -272,5 +301,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private TextBox textBox5;
+        private Label label4;
     }
 }

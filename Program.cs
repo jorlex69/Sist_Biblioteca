@@ -1,3 +1,5 @@
+using Sist_Biblioteca.Diseños;
+
 namespace Sist_Biblioteca
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace Sist_Biblioteca
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new add_users());
         }
     }
 }
