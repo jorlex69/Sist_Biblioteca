@@ -122,7 +122,6 @@ namespace Sist_Biblioteca.Diseños
 
 
         }
-
         private void deluser()
         {
 

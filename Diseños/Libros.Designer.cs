@@ -49,8 +49,6 @@
             dateTimePicker2 = new DateTimePicker();
             label7 = new Label();
             dateTimePicker1 = new DateTimePicker();
-            textBox6 = new TextBox();
-            label6 = new Label();
             dataGridView1 = new DataGridView();
             button6 = new Button();
             groupBox1.SuspendLayout();
@@ -87,6 +85,7 @@
             button4.TabIndex = 13;
             button4.Text = "Eliminar";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -96,6 +95,7 @@
             button3.TabIndex = 12;
             button3.Text = "Actualizar";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -189,8 +189,6 @@
             groupBox2.Controls.Add(dateTimePicker2);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(dateTimePicker1);
-            groupBox2.Controls.Add(textBox6);
-            groupBox2.Controls.Add(label6);
             groupBox2.Location = new Point(445, 30);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(337, 197);
@@ -255,31 +253,19 @@
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 2;
             // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(56, 22);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(121, 23);
-            textBox6.TabIndex = 1;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(13, 29);
-            label6.Name = "label6";
-            label6.Size = new Size(37, 15);
-            label6.TabIndex = 0;
-            label6.Text = "Titulo";
-            // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(30, 233);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(752, 205);
             dataGridView1.TabIndex = 2;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // button6
             // 
@@ -330,9 +316,7 @@
         private Button button4;
         private Button button3;
         private GroupBox groupBox2;
-        private Label label6;
         private DateTimePicker dateTimePicker1;
-        private TextBox textBox6;
         private Button button5;
         private Label label8;
         private DateTimePicker dateTimePicker2;

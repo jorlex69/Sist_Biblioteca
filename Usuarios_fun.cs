@@ -45,7 +45,7 @@ public class GestorUsuarios
     {
         conn.Open();
 
-        string consulta = "UPDATE USUARIOS SET Nombre= @nombre, Correo= @Correo, Password = @password WHERE ID = @id";
+        string consulta = "UPDATE USUARIOS SET Nombre= @nombre, Correo= @Correo, Password = @password WHERE ID = @id AND Activo = 0";
         SqlCommand comando = new SqlCommand(consulta, conn);
         comando.Parameters.AddWithValue("@nombre", nombre);
         comando.Parameters.AddWithValue("@Correo", correo);
