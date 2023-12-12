@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            groupBox2 = new GroupBox();
-            button5 = new Button();
-            textBox6 = new TextBox();
-            label6 = new Label();
             groupBox1 = new GroupBox();
+            textBox9 = new TextBox();
+            label11 = new Label();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
@@ -47,59 +45,39 @@
             label2 = new Label();
             label1 = new Label();
             button6 = new Button();
+            groupBox2 = new GroupBox();
+            textBox5 = new TextBox();
+            label4 = new Label();
+            button5 = new Button();
+            label8 = new Label();
+            dateTimePicker2 = new DateTimePicker();
+            label7 = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            groupBox3 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(26, 238);
+            dataGridView1.Location = new Point(26, 284);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(754, 193);
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(754, 147);
             dataGridView1.TabIndex = 18;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(button5);
-            groupBox2.Controls.Add(textBox6);
-            groupBox2.Controls.Add(label6);
-            groupBox2.Location = new Point(473, 143);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(307, 71);
-            groupBox2.TabIndex = 17;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Buscar";
-            // 
-            // button5
-            // 
-            button5.Location = new Point(204, 24);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 6;
-            button5.Text = "Buscar";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(62, 23);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(121, 23);
-            textBox6.TabIndex = 1;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(13, 29);
-            label6.Name = "label6";
-            label6.Size = new Size(43, 15);
-            label6.TabIndex = 0;
-            label6.Text = "Correo";
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(textBox9);
+            groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
@@ -112,12 +90,28 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(20, 20);
+            groupBox1.Location = new Point(26, 35);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(430, 197);
+            groupBox1.Size = new Size(430, 207);
             groupBox1.TabIndex = 16;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new Point(148, 158);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(136, 23);
+            textBox9.TabIndex = 21;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(95, 166);
+            label11.Name = "label11";
+            label11.Size = new Size(42, 15);
+            label11.TabIndex = 20;
+            label11.Text = "Estado";
             // 
             // button4
             // 
@@ -127,6 +121,7 @@
             button4.TabIndex = 13;
             button4.Text = "Eliminar";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -136,6 +131,7 @@
             button3.TabIndex = 12;
             button3.Text = "Editar";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -145,6 +141,7 @@
             button2.TabIndex = 11;
             button2.Text = "Agregar";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -186,38 +183,38 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 127);
+            label5.Location = new Point(33, 131);
             label5.Name = "label5";
-            label5.Size = new Size(124, 15);
+            label5.Size = new Size(109, 15);
             label5.TabIndex = 4;
-            label5.Text = "Confirmar Contraseña";
+            label5.Text = "Nombre Estudiante";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(63, 97);
+            label3.Location = new Point(67, 105);
             label3.Name = "label3";
-            label3.Size = new Size(67, 15);
+            label3.Size = new Size(75, 15);
             label3.TabIndex = 2;
-            label3.Text = "Contraseña";
+            label3.Text = "Id Estudiante";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(87, 69);
+            label2.Location = new Point(67, 73);
             label2.Name = "label2";
-            label2.Size = new Size(43, 15);
+            label2.Size = new Size(75, 15);
             label2.TabIndex = 1;
-            label2.Text = "Correo";
+            label2.Text = "Id Trabajador";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(79, 40);
+            label1.Location = new Point(56, 42);
             label1.Name = "label1";
-            label1.Size = new Size(51, 15);
+            label1.Size = new Size(86, 15);
             label1.TabIndex = 0;
-            label1.Text = "Nombre";
+            label1.Text = "Titulo del Libro";
             // 
             // button6
             // 
@@ -229,33 +226,115 @@
             button6.Text = "X";
             button6.UseVisualStyleBackColor = false;
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(textBox5);
+            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(button5);
+            groupBox2.Location = new Point(476, 45);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(304, 64);
+            groupBox2.TabIndex = 20;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Buscar";
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(94, 22);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(94, 23);
+            textBox5.TabIndex = 8;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(17, 30);
+            label4.Name = "label4";
+            label4.Size = new Size(71, 15);
+            label4.TabIndex = 7;
+            label4.Text = "ID Prestamo";
+            // 
+            // button5
+            // 
+            button5.Location = new Point(216, 21);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 6;
+            button5.Text = "Buscar";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(42, 85);
+            label8.Name = "label8";
+            label8.Size = new Size(37, 15);
+            label8.TabIndex = 5;
+            label8.Text = "Hasta";
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(30, 104);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(200, 23);
+            dateTimePicker2.TabIndex = 4;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(40, 30);
+            label7.Name = "label7";
+            label7.Size = new Size(39, 15);
+            label7.TabIndex = 3;
+            label7.Text = "Desde";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(30, 51);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 2;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(dateTimePicker1);
+            groupBox3.Controls.Add(label7);
+            groupBox3.Controls.Add(dateTimePicker2);
+            groupBox3.Controls.Add(label8);
+            groupBox3.Location = new Point(476, 115);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(251, 144);
+            groupBox3.TabIndex = 21;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Fecha";
+            // 
             // frmpresta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBox3);
+            Controls.Add(groupBox2);
             Controls.Add(button6);
             Controls.Add(dataGridView1);
-            Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmpresta";
             Text = "frmpresta";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private DataGridView dataGridView1;
-        private GroupBox groupBox2;
-        private Button button5;
-        private TextBox textBox6;
-        private Label label6;
         private GroupBox groupBox1;
         private Button button4;
         private Button button3;
@@ -270,5 +349,16 @@
         private Label label2;
         private Label label1;
         private Button button6;
+        private GroupBox groupBox2;
+        private TextBox textBox5;
+        private Label label4;
+        private Button button5;
+        private Label label8;
+        private DateTimePicker dateTimePicker2;
+        private Label label7;
+        private DateTimePicker dateTimePicker1;
+        private TextBox textBox9;
+        private Label label11;
+        private GroupBox groupBox3;
     }
 }

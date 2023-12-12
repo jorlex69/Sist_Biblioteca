@@ -13,7 +13,8 @@ namespace Sist_Biblioteca
 
         //hola
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void iniciarse()
         {
             if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text))
             {
@@ -46,7 +47,7 @@ namespace Sist_Biblioteca
                 catch (Exception ex)
                 {
                     MessageBox.Show("!" + ex);
-                
+
                 }
 
             }
@@ -56,6 +57,10 @@ namespace Sist_Biblioteca
             }
 
 
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            iniciarse();
 
 
         }

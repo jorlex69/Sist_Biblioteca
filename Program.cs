@@ -13,7 +13,7 @@ namespace Sist_Biblioteca
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmtrabj());
+            Application.Run(new add_users());
         }
     }
 }
