@@ -68,6 +68,7 @@
             btnestu.TabIndex = 2;
             btnestu.Text = "Estudiantes";
             btnestu.UseVisualStyleBackColor = false;
+            btnestu.Click += btnestu_Click;
             // 
             // btnlib
             // 
@@ -93,7 +94,7 @@
             // btntrab
             // 
             btntrab.BackColor = Color.Cyan;
-            btntrab.Location = new Point(45, 336);
+            btntrab.Location = new Point(43, 334);
             btntrab.Name = "btntrab";
             btntrab.Size = new Size(180, 48);
             btntrab.TabIndex = 5;

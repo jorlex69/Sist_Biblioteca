@@ -21,43 +21,46 @@ namespace Sist_Biblioteca
                 try
                 {
                     SqlConnection conexion = new SqlConnection("Data Source=DESKTOP-IA2ONFD\\SQLEXPRESS;Initial Catalog=BIBLIOTECA;TrustServerCertificate=true;Integrated Security=True");
-                    // string connectionString = ("Data Source=DESKTOP-IA2ONFD\\SQLEXPRESS;Initial Catalog=BIBLIOTECA;TrustServerCertificate=true;Integrated Security=True");
-
                     conexion.Open();
-                    string consulta = "select * from USUARIOS where Correo ='" + textBox1.Text + "' and Password ='" + Encrypt.GetSHA256(textBox2.Text) + "'";
-                    SqlCommand comando = new SqlCommand(consulta, conexion);
-                    SqlDataReader lector;
-                    lector = comando.ExecuteReader();
 
-                    if (lector.HasRows == true)
+                    string consulta = "SELECT Rol FROM USUARIOS WHERE Correo = @correo AND Password = @password";
+                    SqlCommand comando = new SqlCommand(consulta, conexion);
+                    comando.Parameters.AddWithValue("@correo", textBox1.Text);
+                    comando.Parameters.AddWithValue("@password", Encrypt.GetSHA256(textBox2.Text));
+
+                    SqlDataReader lector = comando.ExecuteReader();
+
+                    if (lector.HasRows)
                     {
+                        lector.Read();
+                        string rol = lector["Rol"].ToString();
                         this.Hide();
                         MessageBox.Show("Bienvenido");
-                        Main_ form2 = new Main_();
+
+                        // Abre el siguiente formulario y pasa el rol como argumento al constructor del formulario
+                        Main_ form2 = new Main_ (rol);
+                        add_users adduser = new add_users(rol);
+
                         form2.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Usuario o Contraeña erroneo");
+                        MessageBox.Show("Usuario o Contraseña incorrectos");
                     }
+
                     conexion.Close();
-
-
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("!" + ex);
-
+                    MessageBox.Show("Error: " + ex.Message);
                 }
-
             }
             else
             {
-                MessageBox.Show("Campos Vacios");
+                MessageBox.Show("Campos Vacíos");
             }
-
-
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             iniciarse();

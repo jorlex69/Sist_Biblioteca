@@ -41,14 +41,15 @@ public class GestorUsuarios
     }
 
 
-    public void EditarUsuario(string nombre, string correo, string contrasena ,int id)
+    public void EditarUsuario(string nombre, string correo, string rol, string contrasena, int id)
     {
         conn.Open();
 
-        string consulta = "UPDATE USUARIOS SET Nombre= @nombre, Correo= @Correo, Password = @password WHERE ID = @id AND Activo = 0";
+        string consulta = "UPDATE USUARIOS SET Nombre = @nombre, Correo = @correo, Rol = @rol, Password = @password WHERE ID = @id AND Activo = 1";
         SqlCommand comando = new SqlCommand(consulta, conn);
         comando.Parameters.AddWithValue("@nombre", nombre);
-        comando.Parameters.AddWithValue("@Correo", correo);
+        comando.Parameters.AddWithValue("@correo", correo);
+        comando.Parameters.AddWithValue("@rol", rol);
         comando.Parameters.AddWithValue("@password", Encrypt.GetSHA256(contrasena));
         comando.Parameters.AddWithValue("@id", id);
 
@@ -66,6 +67,7 @@ public class GestorUsuarios
             conn.Close();
         }
     }
+
 
     public void OcultarUsuario(int id)
     {

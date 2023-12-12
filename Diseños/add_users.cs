@@ -15,8 +15,8 @@ namespace Sist_Biblioteca.Diseños
     public partial class add_users : Form
     {
         string connectionString = ("Data Source=DESKTOP-IA2ONFD\\SQLEXPRESS;Initial Catalog=BIBLIOTECA;TrustServerCertificate=true;Integrated Security=True");
+        private string RolUsuario;
 
-      
         private void buscuser()
         {
 
@@ -62,7 +62,7 @@ namespace Sist_Biblioteca.Diseños
                     try
                     {
                         GestorUsuarios gestorUsuarios = new GestorUsuarios(connectionString);
-                        gestorUsuarios.AgregarUsuario(textBox1.Text, textBox2.Text, textBox3.Text, textBox5.Text);
+                        gestorUsuarios.AgregarUsuario(textBox1.Text, textBox2.Text, textBox5.Text, textBox3.Text);
 
                     }
                     catch (Exception ex)
@@ -92,7 +92,7 @@ namespace Sist_Biblioteca.Diseños
         }
         private void edituser()
         {
-            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text) && !string.IsNullOrEmpty(textBox3.Text) && !string.IsNullOrEmpty(textBox4.Text) && !string.IsNullOrEmpty(textBox6.Text))
+            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text) && !string.IsNullOrEmpty(textBox3.Text) && !string.IsNullOrEmpty(textBox4.Text) && !string.IsNullOrEmpty(textBox6.Text)&&!string.IsNullOrEmpty(textBox5.Text) )
             {
 
 
@@ -102,7 +102,7 @@ namespace Sist_Biblioteca.Diseños
                     {
                         int id = int.Parse(textBox6.Text);
                         GestorUsuarios gestorUsuarios = new GestorUsuarios(connectionString);
-                        gestorUsuarios.EditarUsuario(textBox1.Text, textBox2.Text, textBox3.Text, id);
+                        gestorUsuarios.EditarUsuario(textBox1.Text,textBox2.Text,textBox5.Text,textBox3.Text,id);
                     }
                     catch (Exception ex)
                     {
@@ -149,10 +149,23 @@ namespace Sist_Biblioteca.Diseños
 
 
         }
-        public add_users()
+        public add_users(string rol)
         {
             InitializeComponent();
+            RolUsuario = rol;
 
+             if (RolUsuario.ToLower() == "administrador" || RolUsuario.ToLower() == "admin")
+
+            {
+                // Hacer visible un botón específico para el administrador
+
+            }
+            else
+            {
+                // Ocultar el botón para otros roles
+                button3.Visible = false;
+               // btntrab.Visible = false;
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
