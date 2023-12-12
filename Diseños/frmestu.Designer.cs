@@ -61,15 +61,21 @@
             button6.TabIndex = 16;
             button6.Text = "X";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(18, 242);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(754, 193);
             dataGridView1.TabIndex = 15;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // groupBox2
             // 
@@ -91,6 +97,7 @@
             button5.TabIndex = 6;
             button5.Text = "Buscar";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // textBox6
             // 
@@ -102,11 +109,11 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(13, 29);
+            label6.Location = new Point(38, 32);
             label6.Name = "label6";
-            label6.Size = new Size(43, 15);
+            label6.Size = new Size(18, 15);
             label6.TabIndex = 0;
-            label6.Text = "Correo";
+            label6.Text = "ID";
             // 
             // groupBox1
             // 
@@ -137,6 +144,7 @@
             button4.TabIndex = 13;
             button4.Text = "Eliminar";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -146,6 +154,7 @@
             button3.TabIndex = 12;
             button3.Text = "Editar";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -155,6 +164,7 @@
             button2.TabIndex = 11;
             button2.Text = "Agregar";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -196,29 +206,29 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 127);
+            label5.Location = new Point(85, 131);
             label5.Name = "label5";
-            label5.Size = new Size(124, 15);
+            label5.Size = new Size(45, 15);
             label5.TabIndex = 4;
-            label5.Text = "Confirmar Contraseña";
+            label5.Text = "Carrera";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(63, 97);
+            label3.Location = new Point(78, 102);
             label3.Name = "label3";
-            label3.Size = new Size(67, 15);
+            label3.Size = new Size(52, 15);
             label3.TabIndex = 2;
-            label3.Text = "Contraseña";
+            label3.Text = "Telefono";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(87, 69);
+            label2.Location = new Point(85, 73);
             label2.Name = "label2";
-            label2.Size = new Size(43, 15);
+            label2.Size = new Size(45, 15);
             label2.TabIndex = 1;
-            label2.Text = "Correo";
+            label2.Text = "Ciudad";
             // 
             // label1
             // 
@@ -240,6 +250,7 @@
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmestu";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmestu";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox2.ResumeLayout(false);
