@@ -90,6 +90,7 @@
             button1.TabIndex = 4;
             button1.Text = "Prestamos";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // btntrab
             // 
@@ -100,6 +101,7 @@
             btntrab.TabIndex = 5;
             btntrab.Text = "Trabajadores";
             btntrab.UseVisualStyleBackColor = false;
+            btntrab.Click += btntrab_Click;
             // 
             // Main_
             // 

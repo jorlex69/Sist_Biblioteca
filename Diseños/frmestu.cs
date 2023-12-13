@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
+
 
 namespace Sist_Biblioteca.Diseños
 {
@@ -16,7 +18,22 @@ namespace Sist_Biblioteca.Diseños
     {
 
         string connectionString = ("Data Source=DESKTOP-IA2ONFD\\SQLEXPRESS;Initial Catalog=BIBLIOTECA;TrustServerCertificate=true;Integrated Security=True");
+        private string RolUsuario;
 
+
+        private void cleantext()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                TextBox textBox = this.Controls.Find("textBox" + i, true).FirstOrDefault() as TextBox;
+
+                if (textBox != null)
+                {
+                    textBox.Clear();
+
+                }
+            }
+        }
         private void buscESTU()
         {
 
@@ -72,7 +89,8 @@ namespace Sist_Biblioteca.Diseños
                     //int numero = int.Parse(textBox6.Text);
                     GestorEstudiantes gestorEstudiantes = new GestorEstudiantes(connectionString);
                     gestorEstudiantes.AgregarEstudiante(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
-
+                    loadgrid();
+                    cleantext();
                 }
                 catch (Exception ex)
                 {
@@ -97,6 +115,9 @@ namespace Sist_Biblioteca.Diseños
                     int id = int.Parse(textBox6.Text);
                     GestorEstudiantes gestorEstudiantes = new GestorEstudiantes(connectionString);
                     gestorEstudiantes.EditarEstudiante(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, id);
+                    loadgrid();
+                    cleantext();
+
                 }
                 catch (Exception ex)
                 {
@@ -120,6 +141,9 @@ namespace Sist_Biblioteca.Diseños
                     int id = int.Parse(textBox6.Text);
                     GestorEstudiantes gestorestu = new GestorEstudiantes(connectionString);
                     gestorestu.OcultarEstudiante(id);
+                    loadgrid();
+                    cleantext();
+
                 }
                 catch (Exception ex)
                 {
@@ -136,10 +160,26 @@ namespace Sist_Biblioteca.Diseños
 
 
         }
-        public frmestu()
+ 
+        public frmestu(string rol)
         {
             InitializeComponent();
             loadgrid();
+            RolUsuario = rol;
+
+            if (RolUsuario.ToLower() == "administrador" || RolUsuario.ToLower() == "admin")
+
+            {
+                // Hacer visible un botón específico para el administrador
+
+            }
+            else
+            {
+                // Ocultar el botón para otros roles
+                button3.Visible = false;
+                button4.Visible = false;
+
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -153,13 +193,14 @@ namespace Sist_Biblioteca.Diseños
         private void button2_Click(object sender, EventArgs e)
         {
             addEstudiantes();
-            loadgrid();
+      
+        
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             editEstudiantes();
-            loadgrid();
+ 
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -170,7 +211,7 @@ namespace Sist_Biblioteca.Diseños
         private void button4_Click(object sender, EventArgs e)
         {
             delEstudiante();
-            loadgrid();
+
         }
 
         private void button5_Click(object sender, EventArgs e)

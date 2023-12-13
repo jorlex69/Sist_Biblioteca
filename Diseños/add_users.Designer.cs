@@ -35,7 +35,7 @@
             textBox6 = new TextBox();
             label6 = new Label();
             groupBox1 = new GroupBox();
-            textBox5 = new TextBox();
+            comboBox1 = new ComboBox();
             label4 = new Label();
             button4 = new Button();
             button3 = new Button();
@@ -119,7 +119,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox5);
+            groupBox1.Controls.Add(comboBox1);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(button3);
@@ -140,12 +140,14 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
             // 
-            // textBox5
+            // comboBox1
             // 
-            textBox5.Location = new Point(148, 95);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(136, 23);
-            textBox5.TabIndex = 15;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Admin", "Empleado" });
+            comboBox1.Location = new Point(148, 94);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(136, 23);
+            comboBox1.TabIndex = 13;
             // 
             // label4
             // 
@@ -301,7 +303,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox textBox5;
         private Label label4;
+        private ComboBox comboBox1;
     }
 }

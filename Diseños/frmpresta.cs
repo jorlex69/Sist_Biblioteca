@@ -9,13 +9,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace Sist_Biblioteca.Diseños
 {
     public partial class frmpresta : Form
     {
         string connectionString = ("Data Source=DESKTOP-IA2ONFD\\SQLEXPRESS;Initial Catalog=BIBLIOTECA;TrustServerCertificate=true;Integrated Security=True");
- 
+        private string RolUsuario;
+
+
+        private void cleantext()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                TextBox textBox = this.Controls.Find("textBox" + i, true).FirstOrDefault() as TextBox;
+
+                if (textBox != null)
+                {
+                    textBox.Clear();
+
+                }
+            }
+        }
         private void buscarPrestamos()
         {
             if (!string.IsNullOrEmpty(textBox5.Text))
@@ -68,6 +84,9 @@ namespace Sist_Biblioteca.Diseños
                     GestorPrestamos gestorPrestamos = new GestorPrestamos(connectionString);
                     gestorPrestamos.AgregarPrestamo(textBox1.Text, textBox2.Text, int.Parse(textBox3.Text), textBox4.Text, dateTimePicker1.Value, dateTimePicker2.Value, dias, textBox9.Text);
                     loadGrid();
+
+                    cleantext();
+                    loadGrid();
                 }
                 catch (Exception ex)
                 {
@@ -86,12 +105,15 @@ namespace Sist_Biblioteca.Diseños
                 try
                 {
                     int dias = 0;
-                   // Calculamos la diferencia de días entre las fechas
-                   TimeSpan diferencia = dateTimePicker2.Value - dateTimePicker1.Value;
+                    // Calculamos la diferencia de días entre las fechas
+                    TimeSpan diferencia = dateTimePicker2.Value - dateTimePicker1.Value;
                     dias = diferencia.Days;
 
                     GestorPrestamos gestorPrestamos = new GestorPrestamos(connectionString);
                     gestorPrestamos.EditarPrestamo(textBox1.Text, textBox2.Text, int.Parse(textBox3.Text), textBox4.Text, dateTimePicker1.Value, dateTimePicker2.Value, dias, textBox9.Text, int.Parse(textBox5.Text));
+                    loadGrid();
+
+                    cleantext();
                     loadGrid();
                 }
                 catch (Exception ex)
@@ -114,6 +136,7 @@ namespace Sist_Biblioteca.Diseños
                     GestorPrestamos gestorPrestamos = new GestorPrestamos(connectionString);
                     gestorPrestamos.OcultarPrestamo(id);
 
+                    cleantext();
                     loadGrid();
                 }
                 catch (Exception ex)
@@ -127,10 +150,26 @@ namespace Sist_Biblioteca.Diseños
             }
         }
 
-        public frmpresta()
+        public frmpresta(string rol)
         {
             InitializeComponent();
             loadGrid();
+
+            RolUsuario = rol;
+
+            if (RolUsuario.ToLower() == "administrador" || RolUsuario.ToLower() == "admin")
+
+            {
+                // Hacer visible un botón específico para el administrador
+
+            }
+            else
+            {
+                // Ocultar el botón para otros roles
+                button3.Visible = false;
+                button4.Visible = false;
+
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -148,19 +187,19 @@ namespace Sist_Biblioteca.Diseños
         private void button2_Click(object sender, EventArgs e)
         {
             agregarPrestamo();
-            loadGrid();
+        
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             editarPrestamo();
-            loadGrid();
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             eliminarPrestamo();
-            loadGrid();
+     
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -168,5 +207,9 @@ namespace Sist_Biblioteca.Diseños
             buscarPrestamos();
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

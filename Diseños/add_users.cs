@@ -24,7 +24,7 @@ namespace Sist_Biblioteca.Diseños
             {
                 try
                 {
-                    string consulta = "SELECT ID, Nombre, Correo FROM USUARIOS WHERE Activo = 1 AND ID = '" + textBox6.Text + "'";
+                    string consulta = "SELECT ID, Nombre, Correo,Rol FROM USUARIOS WHERE Activo = 1 AND ID = '" + textBox6.Text + "'";
                     SqlDataAdapter adap = new SqlDataAdapter(consulta, connectionString);
                     DataTable dt = new DataTable();
                     adap.Fill(dt);
@@ -53,23 +53,22 @@ namespace Sist_Biblioteca.Diseños
         }
         private void aduser()
         {
-            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text) && !string.IsNullOrEmpty(textBox3.Text) && !string.IsNullOrEmpty(textBox4.Text) && !string.IsNullOrEmpty(textBox5.Text))
+            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text) && !string.IsNullOrEmpty(textBox3.Text) && !string.IsNullOrEmpty(textBox4.Text) && !string.IsNullOrEmpty(comboBox1.Text))
             {
-
-
                 if (string.Equals(textBox3.Text, textBox4.Text, StringComparison.OrdinalIgnoreCase))
                 {
-                    try
-                    {
+                        try
+                        {
+                        cleantext();
+                        loadgrid();
                         GestorUsuarios gestorUsuarios = new GestorUsuarios(connectionString);
-                        gestorUsuarios.AgregarUsuario(textBox1.Text, textBox2.Text, textBox5.Text, textBox3.Text);
+                            gestorUsuarios.AgregarUsuario(textBox1.Text, textBox2.Text, comboBox1.SelectedItem.ToString(), textBox3.Text);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al agregar usuario: " + ex.Message);
+                        }
 
-                    }
-                    catch (Exception ex)
-                    {
-
-                        MessageBox.Show("Error" + ex.Message);
-                    }
                 }
                 else
                 {
@@ -78,13 +77,13 @@ namespace Sist_Biblioteca.Diseños
             }
             else
             {
-                MessageBox.Show("Campos vacios");
+                MessageBox.Show("Campos vacíos");
             }
         }
         private void loadgrid()
         {
 
-            string consulta = "select ID, Nombre, Correo from USUARIOS where Activo = 1";
+            string consulta = "select ID, Nombre, Correo, Rol from USUARIOS where Activo = 1";
             SqlDataAdapter adap = new SqlDataAdapter(consulta, connectionString);
             DataTable dt = new DataTable();
             adap.Fill(dt);
@@ -92,7 +91,7 @@ namespace Sist_Biblioteca.Diseños
         }
         private void edituser()
         {
-            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text) && !string.IsNullOrEmpty(textBox3.Text) && !string.IsNullOrEmpty(textBox4.Text) && !string.IsNullOrEmpty(textBox6.Text)&&!string.IsNullOrEmpty(textBox5.Text) )
+            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text) && !string.IsNullOrEmpty(textBox3.Text) && !string.IsNullOrEmpty(textBox4.Text) && !string.IsNullOrEmpty(textBox6.Text)&&!string.IsNullOrEmpty(comboBox1.Text) )
             {
 
 
@@ -100,9 +99,11 @@ namespace Sist_Biblioteca.Diseños
                 {
                     try
                     {
+                        cleantext();
+                        loadgrid();
                         int id = int.Parse(textBox6.Text);
                         GestorUsuarios gestorUsuarios = new GestorUsuarios(connectionString);
-                        gestorUsuarios.EditarUsuario(textBox1.Text,textBox2.Text,textBox5.Text,textBox3.Text,id);
+                        gestorUsuarios.EditarUsuario(textBox1.Text,textBox2.Text, comboBox1.SelectedItem.ToString(), textBox3.Text,id);
                     }
                     catch (Exception ex)
                     {
@@ -130,6 +131,8 @@ namespace Sist_Biblioteca.Diseños
             {
                 try
                 {
+                    cleantext();
+                    loadgrid();
                     int id = int.Parse(textBox6.Text);
                     GestorUsuarios gestorUsuarios = new GestorUsuarios(connectionString);
                     gestorUsuarios.OcultarUsuario(id);
@@ -149,12 +152,27 @@ namespace Sist_Biblioteca.Diseños
 
 
         }
+        private void cleantext()
+        {
+           for (int i = 1; i <= 10; i++)
+            {
+                TextBox textBox = this.Controls.Find("textBox" + i, true).FirstOrDefault() as TextBox;
+
+                if (textBox != null)
+                {
+                    textBox.Clear(); 
+                                    
+                }
+            }
+        }
+
         public add_users(string rol)
         {
             InitializeComponent();
+            loadgrid();
             RolUsuario = rol;
 
-             if (RolUsuario.ToLower() == "administrador" || RolUsuario.ToLower() == "admin")
+            if (RolUsuario.ToLower() == "administrador" || RolUsuario.ToLower() == "admin")
 
             {
                 // Hacer visible un botón específico para el administrador
@@ -164,7 +182,9 @@ namespace Sist_Biblioteca.Diseños
             {
                 // Ocultar el botón para otros roles
                 button3.Visible = false;
-               // btntrab.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
+ 
             }
         }
 
@@ -177,15 +197,14 @@ namespace Sist_Biblioteca.Diseños
         {
 
             aduser();
-            loadgrid();
+       
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             edituser();
-            loadgrid();
+     
         }
-
 
         private void add_users_Load(object sender, EventArgs e)
         {
@@ -202,7 +221,7 @@ namespace Sist_Biblioteca.Diseños
         private void button4_Click(object sender, EventArgs e)
         {
             deluser();
-            loadgrid();
+
         }
 
         private void button5_Click(object sender, EventArgs e)

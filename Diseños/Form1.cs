@@ -38,8 +38,8 @@ namespace Sist_Biblioteca
                         MessageBox.Show("Bienvenido");
 
                         // Abre el siguiente formulario y pasa el rol como argumento al constructor del formulario
-                        Main_ form2 = new Main_ (rol);
-                        add_users adduser = new add_users(rol);
+                        Main_ form2 = new Main_(rol);
+
 
                         form2.Show();
                     }
@@ -66,6 +66,16 @@ namespace Sist_Biblioteca
             iniciarse();
 
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             button1 = new Button();
             button2 = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -52,11 +53,22 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label1.Location = new Point(66, 62);
+            label1.Name = "label1";
+            label1.Size = new Size(142, 30);
+            label1.TabIndex = 2;
+            label1.Text = "¿Esta Seguro?";
+            // 
             // sure_
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(276, 199);
+            Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.None;
@@ -64,11 +76,13 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "sure_";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button button1;
         private Button button2;
+        private Label label1;
     }
 }

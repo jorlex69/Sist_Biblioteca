@@ -225,6 +225,7 @@
             button6.TabIndex = 19;
             button6.Text = "X";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // groupBox2
             // 

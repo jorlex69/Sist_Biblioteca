@@ -25,14 +25,12 @@ namespace Sist_Biblioteca.Diseños
             if (RolUsuario.ToLower() == "administrador" || RolUsuario.ToLower() == "admin")
 
             {
-                // Hacer visible un botón específico para el administrador
+
 
             }
             else
             {
-                // Ocultar el botón para otros roles
-               // btnconf.Visible = false;
-             //   btntrab.Visible = false;
+
             }
         }
 
@@ -45,7 +43,7 @@ namespace Sist_Biblioteca.Diseños
 
         private void btnlib_Click(object sender, EventArgs e)
         {
-            Libros libros = new Libros();
+            Libros libros = new Libros(RolUsuario);
             libros.ShowDialog();
         }
 
@@ -57,8 +55,20 @@ namespace Sist_Biblioteca.Diseños
 
         private void btnestu_Click(object sender, EventArgs e)
         {
-            frmestu frmestu = new frmestu();
+            frmestu frmestu = new frmestu(RolUsuario);
             frmestu.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmpresta frmpresta = new frmpresta(RolUsuario);
+            frmpresta.ShowDialog();
+        }
+
+        private void btntrab_Click(object sender, EventArgs e)
+        {
+            frmtrabj frmtrabj = new frmtrabj(RolUsuario);
+            frmtrabj.ShowDialog();
         }
     }
 }

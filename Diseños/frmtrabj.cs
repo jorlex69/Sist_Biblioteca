@@ -9,13 +9,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace Sist_Biblioteca.Diseños
 {
     public partial class frmtrabj : Form
     {
         string connectionString = ("Data Source=DESKTOP-IA2ONFD\\SQLEXPRESS;Initial Catalog=BIBLIOTECA;TrustServerCertificate=true;Integrated Security=True");
+        string RolUsuario;
 
+        private void cleantext()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                TextBox textBox = this.Controls.Find("textBox" + i, true).FirstOrDefault() as TextBox;
+
+                if (textBox != null)
+                {
+                    textBox.Clear();
+
+                }
+            }
+        }
         private void buscEMP()
         {
             if (!string.IsNullOrEmpty(textBox6.Text))
@@ -67,6 +82,7 @@ namespace Sist_Biblioteca.Diseños
                     gestorEmpleados.AgregarEmpleado(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
 
                     loadgrid();
+                    cleantext();
                 }
                 catch (Exception ex)
                 {
@@ -90,6 +106,7 @@ namespace Sist_Biblioteca.Diseños
                     gestorEmpleados.EditarEmpleado(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, id);
 
                     loadgrid();
+                    cleantext();
                 }
                 catch (Exception ex)
                 {
@@ -112,7 +129,9 @@ namespace Sist_Biblioteca.Diseños
                     GestorEmpleados gestorEmpleados = new GestorEmpleados(connectionString);
                     gestorEmpleados.OcultarEmpleado(id);
 
+
                     loadgrid();
+                    cleantext();
                 }
                 catch (Exception ex)
                 {
@@ -125,10 +144,25 @@ namespace Sist_Biblioteca.Diseños
             }
         }
 
-        public frmtrabj()
+        public frmtrabj(string rol)
         {
             InitializeComponent();
             loadgrid();
+            RolUsuario = rol;
+
+            if (RolUsuario.ToLower() == "administrador" || RolUsuario.ToLower() == "admin")
+
+            {
+                // Hacer visible un botón específico para el administrador
+
+            }
+            else
+            {
+                // Ocultar el botón para otros roles
+                button3.Visible = false;
+                button4.Visible = false;
+
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -144,19 +178,19 @@ namespace Sist_Biblioteca.Diseños
         private void button2_Click(object sender, EventArgs e)
         {
             addEmpleados();
-            loadgrid();
+       
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             editEmpleados();
-            loadgrid();
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             delEmpleado();
-            loadgrid();
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -169,9 +203,5 @@ namespace Sist_Biblioteca.Diseños
             this.Close();
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
