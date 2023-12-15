@@ -160,7 +160,7 @@ namespace Sist_Biblioteca.Diseños
 
 
         }
- 
+
         public frmestu(string rol)
         {
             InitializeComponent();
@@ -193,14 +193,14 @@ namespace Sist_Biblioteca.Diseños
         private void button2_Click(object sender, EventArgs e)
         {
             addEstudiantes();
-      
-        
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             editEstudiantes();
- 
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -217,6 +217,108 @@ namespace Sist_Biblioteca.Diseños
         private void button5_Click(object sender, EventArgs e)
         {
             buscESTU();
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Nombre")
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = Color.Black;
+
+            }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "Nombre ";
+                textBox1.ForeColor = Color.White;
+            }
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "Ciudad")
+            {
+                textBox2.Text = "";
+                textBox2.ForeColor = Color.Black;
+
+            }
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "Ciudad ";
+                textBox2.ForeColor = Color.White;
+            }
+
+        }
+
+        private void textBox3_Enter(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "Telefono")
+            {
+                textBox3.Text = "";
+                textBox3.ForeColor = Color.Black;
+
+            }
+
+        }
+
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+            {
+                textBox3.Text = "Telefono ";
+                textBox3.ForeColor = Color.White;
+            }
+
+        }
+
+        private void textBox4_Enter(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "Carrera")
+            {
+                textBox4.Text = "";
+                textBox4.ForeColor = Color.Black;
+
+            }
+
+        }
+
+        private void textBox4_Leave(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "")
+            {
+                textBox4.Text = "Carrera ";
+                textBox4.ForeColor = Color.White;
+            }
+
+        }
+
+        private void textBox6_Enter(object sender, EventArgs e)
+        {
+            if (textBox6.Text == "ID")
+            {
+                textBox6.Text = "";
+                textBox6.ForeColor = Color.Black;
+
+            }
+
+        }
+
+        private void textBox6_Leave(object sender, EventArgs e)
+        {
+            if (textBox6.Text == "")
+            {
+                textBox6.Text = "ID ";
+                textBox6.ForeColor = Color.White;
+            }
+
         }
     }
 }

@@ -37,18 +37,9 @@
             textBox4 = new TextBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
             groupBox2 = new GroupBox();
             textBox1 = new TextBox();
-            label1 = new Label();
             button5 = new Button();
-            label8 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            label7 = new Label();
-            dateTimePicker1 = new DateTimePicker();
             dataGridView1 = new DataGridView();
             button6 = new Button();
             groupBox1.SuspendLayout();
@@ -66,10 +57,9 @@
             groupBox1.Controls.Add(textBox4);
             groupBox1.Controls.Add(textBox3);
             groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
+            groupBox1.FlatStyle = FlatStyle.Flat;
+            groupBox1.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.ForeColor = Color.LightGray;
             groupBox1.Location = new Point(12, 30);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(408, 197);
@@ -79,116 +69,118 @@
             // 
             // button4
             // 
+            button4.BackColor = Color.DodgerBlue;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.ForeColor = Color.White;
             button4.Location = new Point(317, 118);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
             button4.TabIndex = 13;
             button4.Text = "Eliminar";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
             // button3
             // 
+            button3.BackColor = Color.DodgerBlue;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.ForeColor = Color.White;
             button3.Location = new Point(317, 89);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 12;
             button3.Text = "Actualizar";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(317, 60);
+            button2.BackColor = Color.DodgerBlue;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(317, 54);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(75, 24);
             button2.TabIndex = 11;
             button2.Text = "Agregar";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(317, 31);
+            button1.BackColor = Color.DodgerBlue;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(317, 24);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(75, 24);
             button1.TabIndex = 10;
             button1.Text = "Iniciar";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(102, 118);
+            textBox5.BackColor = Color.FromArgb(0, 122, 204);
+            textBox5.BorderStyle = BorderStyle.None;
+            textBox5.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox5.ForeColor = Color.LightGray;
+            textBox5.Location = new Point(18, 118);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(136, 23);
+            textBox5.Size = new Size(220, 18);
             textBox5.TabIndex = 9;
+            textBox5.Text = "Existencia";
+            textBox5.Enter += textBox5_Enter;
+            textBox5.Leave += textBox5_Leave;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(102, 88);
+            textBox4.BackColor = Color.FromArgb(0, 122, 204);
+            textBox4.BorderStyle = BorderStyle.None;
+            textBox4.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox4.ForeColor = Color.LightGray;
+            textBox4.Location = new Point(18, 88);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(136, 23);
+            textBox4.Size = new Size(220, 18);
             textBox4.TabIndex = 8;
+            textBox4.Text = "Editorial";
+            textBox4.Enter += textBox4_Enter;
+            textBox4.Leave += textBox4_Leave;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(102, 59);
+            textBox3.BackColor = Color.FromArgb(0, 122, 204);
+            textBox3.BorderStyle = BorderStyle.None;
+            textBox3.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox3.ForeColor = Color.LightGray;
+            textBox3.Location = new Point(18, 59);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(136, 23);
+            textBox3.Size = new Size(220, 18);
             textBox3.TabIndex = 7;
+            textBox3.Text = "Autor";
+            textBox3.Enter += textBox3_Enter;
+            textBox3.Leave += textBox3_Leave;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(102, 30);
+            textBox2.BackColor = Color.FromArgb(0, 122, 204);
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox2.ForeColor = Color.LightGray;
+            textBox2.Location = new Point(18, 30);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(136, 23);
+            textBox2.Size = new Size(220, 18);
             textBox2.TabIndex = 6;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(24, 96);
-            label5.Name = "label5";
-            label5.Size = new Size(50, 15);
-            label5.TabIndex = 4;
-            label5.Text = "Editorial";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(10, 126);
-            label4.Name = "label4";
-            label4.Size = new Size(64, 15);
-            label4.TabIndex = 3;
-            label4.Text = "Existencias";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(37, 67);
-            label3.Name = "label3";
-            label3.Size = new Size(37, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Autor";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(37, 38);
-            label2.Name = "label2";
-            label2.Size = new Size(37, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Titulo";
+            textBox2.Text = "Titulo";
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(textBox1);
-            groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(button5);
-            groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(dateTimePicker2);
-            groupBox2.Controls.Add(label7);
-            groupBox2.Controls.Add(dateTimePicker1);
+            groupBox2.ForeColor = Color.LightGray;
             groupBox2.Location = new Point(445, 30);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(337, 197);
@@ -198,65 +190,37 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(237, 21);
+            textBox1.BackColor = Color.FromArgb(0, 122, 204);
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.ForeColor = Color.LightGray;
+            textBox1.Location = new Point(6, 21);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(94, 23);
+            textBox1.Size = new Size(200, 16);
             textBox1.TabIndex = 8;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(183, 29);
-            label1.Name = "label1";
-            label1.Size = new Size(48, 15);
-            label1.TabIndex = 7;
-            label1.Text = "ID Libro";
+            textBox1.Text = "ID Libro";
+            textBox1.Enter += textBox1_Enter;
+            textBox1.Leave += textBox1_Leave;
             // 
             // button5
             // 
-            button5.Location = new Point(256, 110);
+            button5.BackColor = Color.DodgerBlue;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.ForeColor = Color.White;
+            button5.Location = new Point(247, 24);
             button5.Name = "button5";
             button5.Size = new Size(75, 23);
             button5.TabIndex = 6;
             button5.Text = "Buscar";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(18, 118);
-            label8.Name = "label8";
-            label8.Size = new Size(37, 15);
-            label8.TabIndex = 5;
-            label8.Text = "Hasta";
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new Point(6, 137);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 4;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(16, 63);
-            label7.Name = "label7";
-            label7.Size = new Size(39, 15);
-            label7.TabIndex = 3;
-            label7.Text = "Desde";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(6, 84);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 2;
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.BackgroundColor = Color.FromArgb(0, 122, 204);
+            dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(30, 233);
             dataGridView1.Name = "dataGridView1";
@@ -269,7 +233,7 @@
             // 
             // button6
             // 
-            button6.BackColor = Color.Red;
+            button6.BackColor = Color.White;
             button6.Location = new Point(759, 0);
             button6.Name = "button6";
             button6.Size = new Size(36, 27);
@@ -282,6 +246,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(0, 122, 204);
             ClientSize = new Size(800, 450);
             Controls.Add(button6);
             Controls.Add(dataGridView1);
@@ -289,9 +254,11 @@
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Libros";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
-            Load += Form2_Load;
+       
+            Leave += Libros_Leave;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -303,10 +270,6 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label5;
         private TextBox textBox5;
         private TextBox textBox4;
         private TextBox textBox3;
@@ -316,14 +279,9 @@
         private Button button4;
         private Button button3;
         private GroupBox groupBox2;
-        private DateTimePicker dateTimePicker1;
         private Button button5;
-        private Label label8;
-        private DateTimePicker dateTimePicker2;
-        private Label label7;
         private DataGridView dataGridView1;
         private TextBox textBox1;
-        private Label label1;
         private Button button6;
     }
 }

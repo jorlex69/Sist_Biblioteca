@@ -187,7 +187,7 @@ namespace Sist_Biblioteca.Diseños
         private void button2_Click(object sender, EventArgs e)
         {
             agregarPrestamo();
-        
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -199,7 +199,7 @@ namespace Sist_Biblioteca.Diseños
         private void button4_Click(object sender, EventArgs e)
         {
             eliminarPrestamo();
-     
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -210,6 +210,132 @@ namespace Sist_Biblioteca.Diseños
         private void button6_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Titulo del libro")
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = Color.LightGray;
+
+            }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "Titulo del libro";
+                textBox1.ForeColor = Color.White;
+            }
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "Id trabajador")
+            {
+                textBox2.Text = "";
+                textBox2.ForeColor = Color.LightGray;
+
+            }
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "Id trabajador";
+                textBox2.ForeColor = Color.White;
+
+            }
+
+        }
+
+        private void textBox3_Enter(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "Id estudiante")
+            {
+                textBox3.Text = "";
+                textBox3.ForeColor = Color.LightGray;
+
+            }
+
+        }
+
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+            {
+                textBox3.Text = "Id estudiante";
+                textBox3.ForeColor = Color.White;
+
+            }
+
+        }
+
+        private void textBox4_Enter(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "Nombre estudiante")
+            {
+                textBox4.Text = "";
+                textBox4.ForeColor = Color.LightGray;
+
+            }
+        }
+
+        private void textBox4_Leave(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "")
+            {
+                textBox4.Text = "Nombre estudiante";
+                textBox4.ForeColor = Color.White;
+
+            }
+
+        }
+
+        private void textBox9_Enter(object sender, EventArgs e)
+        {
+            if (textBox9.Text == "Estado")
+            {
+                textBox9.Text = "";
+                textBox9.ForeColor = Color.LightGray;
+
+            }
+        }
+
+        private void textBox9_Leave(object sender, EventArgs e)
+        {
+            if (textBox9.Text == "")
+            {
+                textBox9.Text = "Estado";
+                textBox9.ForeColor = Color.White;
+
+            }
+
+        }
+
+        private void textBox5_Enter(object sender, EventArgs e)
+        {
+            if (textBox5.Text == "ID Prestamo")
+            {
+                textBox5.Text = "";
+                textBox5.ForeColor = Color.LightGray;
+
+            }
+
+        }
+
+        private void textBox5_Leave(object sender, EventArgs e)
+        {
+            if (textBox5.Text == "")
+            {
+                textBox5.Text = "ID Prestamo";
+                textBox5.ForeColor = Color.White;
+
+            }
+
         }
     }
 }

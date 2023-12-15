@@ -2,6 +2,7 @@
 using Sist_Biblioteca.Diseños;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 namespace EncriptandoTexto;
 
 public class GestorUsuarios
@@ -13,34 +14,40 @@ public class GestorUsuarios
         conn = new SqlConnection(connectionString);
     }
 
-    public void AgregarUsuario(string nombre, string correo, string Rol, string contrasena, byte ac = 1)
+    public void AgregarUsuario(string nombre, string correo, string rol, string contrasena, byte ac = 1)
     {
-        conn.Open();
+     
+            conn.Open();
+           
+                string consulta = "INSERT INTO USUARIOS (Nombre, Correo, Password, Rol, Activo) VALUES (@nombre, @correo, @contrasena, @rol, @ac)";
+                SqlCommand comando = new SqlCommand(consulta, conn);
+                comando.Parameters.AddWithValue("@nombre", nombre);
+                comando.Parameters.AddWithValue("@correo", correo);
+                comando.Parameters.AddWithValue("@contrasena", Encrypt.GetSHA256(contrasena));
+                comando.Parameters.AddWithValue("@rol", rol);
+                comando.Parameters.AddWithValue("@ac", ac);
 
-        string consulta = "INSERT INTO USUARIOS (Nombre, Correo, Password, Rol, Activo) VALUES (@nombre, @Correo, @Password, @Rol, @Activo)";
-        SqlCommand comando = new SqlCommand(consulta, conn);
-        comando.Parameters.AddWithValue("@nombre", nombre);
-        comando.Parameters.AddWithValue("@Correo", correo);
-        comando.Parameters.AddWithValue("@Password", Encrypt.GetSHA256(contrasena));
-        comando.Parameters.AddWithValue("@Activo", ac);
-        comando.Parameters.AddWithValue("@Rol", Rol);
+            try
+            {
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Usuario Agregado Con éxito");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar usuario: " + ex.Message);
+            }
 
-        try
-        {
-            comando.ExecuteNonQuery();
-            MessageBox.Show("Usuario Agregado Con éxito");
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Error al agregar usuario: " + ex.Message);
-        }
-        finally
-        {
-            conn.Close();
-        }
+            finally
+            {
+                conn.Close();
+            }
+        
+      
     }
 
 
+
+    //
     public void EditarUsuario(string nombre, string correo, string rol, string contrasena, int id)
     {
         conn.Open();

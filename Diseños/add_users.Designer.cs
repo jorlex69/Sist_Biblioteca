@@ -49,6 +49,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -69,13 +70,15 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.BackgroundColor = Color.LightCoral;
+            dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(18, 242);
+            dataGridView1.Location = new Point(12, 251);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(754, 193);
+            dataGridView1.Size = new Size(754, 163);
             dataGridView1.TabIndex = 11;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -84,7 +87,7 @@
             groupBox2.Controls.Add(button5);
             groupBox2.Controls.Add(textBox6);
             groupBox2.Controls.Add(label6);
-            groupBox2.Location = new Point(465, 24);
+            groupBox2.Location = new Point(465, 84);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(307, 71);
             groupBox2.TabIndex = 10;
@@ -133,7 +136,7 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(12, 24);
+            groupBox1.Location = new Point(12, 48);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(430, 197);
             groupBox1.TabIndex = 9;
@@ -261,17 +264,30 @@
             label1.TabIndex = 0;
             label1.Text = "Nombre";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Imprint MT Shadow", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(314, 9);
+            label7.Name = "label7";
+            label7.Size = new Size(209, 43);
+            label7.TabIndex = 15;
+            label7.Text = "USUARIO";
+            // 
             // add_users
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightCoral;
             ClientSize = new Size(800, 450);
+            Controls.Add(label7);
             Controls.Add(button6);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "add_users";
+            Opacity = 0.9D;
             Text = "add_users";
             Load += add_users_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -280,6 +296,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -305,5 +322,6 @@
         private Label label1;
         private Label label4;
         private ComboBox comboBox1;
+        private Label label7;
     }
 }
