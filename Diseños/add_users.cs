@@ -16,7 +16,8 @@ namespace Sist_Biblioteca.Diseños
     {
         string connectionString = ("Data Source=DESKTOP-IA2ONFD\\SQLEXPRESS;Initial Catalog=BIBLIOTECA;TrustServerCertificate=true;Integrated Security=True");
         private string RolUsuario;
-
+        validpass val = new validpass();
+ 
         private void buscuser()
         {
 
@@ -57,18 +58,29 @@ namespace Sist_Biblioteca.Diseños
             {
                 if (string.Equals(textBox3.Text, textBox4.Text, StringComparison.OrdinalIgnoreCase))
                 {
-                        try
-                        {
-                        cleantext();
-                        loadgrid();
-                        GestorUsuarios gestorUsuarios = new GestorUsuarios(connectionString);
-                            gestorUsuarios.AgregarUsuario(textBox1.Text, textBox2.Text, comboBox1.SelectedItem.ToString(), textBox3.Text);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error al agregar usuario: " + ex.Message);
-                        }
+                    if (val.AlgoritmoContraseña(textBox3.Text) == true)
+                    {
+                      
 
+                            try
+                            {
+                                cleantext();
+                                loadgrid();
+                                GestorUsuarios gestorUsuarios = new GestorUsuarios(connectionString);
+                                gestorUsuarios.AgregarUsuario(textBox1.Text, textBox2.Text, comboBox1.SelectedItem.ToString(), textBox3.Text);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error al agregar usuario: " + ex.Message);
+                            }
+                        
+                      
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Su Contraseña No Es Segura debe contener al menos mayus y min, num y caracteres");
+                    }
                 }
                 else
                 {
@@ -131,11 +143,14 @@ namespace Sist_Biblioteca.Diseños
             {
                 try
                 {
+
+                    int idUsuario = int.Parse(textBox6.Text);
+           
+
+                    GestorUsuarios gestorUsuarios = new GestorUsuarios(connectionString);
+                    gestorUsuarios.OcultarUsuario(idUsuario);
                     cleantext();
                     loadgrid();
-                    int id = int.Parse(textBox6.Text);
-                    GestorUsuarios gestorUsuarios = new GestorUsuarios(connectionString);
-                    gestorUsuarios.OcultarUsuario(id);
                 }
                 catch (Exception ex)
                 {
@@ -147,7 +162,7 @@ namespace Sist_Biblioteca.Diseños
 
             else
             {
-                MessageBox.Show("Campos vacios");
+                MessageBox.Show("Proporcione el ID del Ususario");
             }
 
 

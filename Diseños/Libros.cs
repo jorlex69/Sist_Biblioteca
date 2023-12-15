@@ -43,7 +43,7 @@ namespace Sist_Biblioteca.Diseños
             adap.Fill(dt);
             dataGridView1.DataSource = dt;
 
-         
+
         }
         private void addlibros()
         {
@@ -70,7 +70,40 @@ namespace Sist_Biblioteca.Diseños
                 MessageBox.Show("Campos vacios");
             }
         }
+        private void buslibro()
+        {
 
+            if (!string.IsNullOrEmpty(textBox1.Text))
+            {
+                try
+                {
+                    string consulta = "SELECT IdLibro, Titulo, Autor, Editorial, Existencia FROM LIBROS WHERE Activo = 1 AND ID = '" + textBox1.Text + "'";
+                    SqlDataAdapter adap = new SqlDataAdapter(consulta, connectionString);
+                    DataTable dt = new DataTable();
+                    adap.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        dataGridView1.DataSource = dt;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontraron usuarios con el ID proporcionado.");
+                        dataGridView1.DataSource = null; // Limpiar el DataGridView si no hay datos
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("campos vacios");
+            }
+
+
+        }
         private void editlibros()
         {
             if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text) && !string.IsNullOrEmpty(textBox3.Text) && !string.IsNullOrEmpty(textBox4.Text) && !string.IsNullOrEmpty(textBox5.Text))
@@ -97,8 +130,6 @@ namespace Sist_Biblioteca.Diseños
                 MessageBox.Show("Campos vacios");
             }
         }
-
-
         private void dellibro()
         {
 
@@ -151,10 +182,7 @@ namespace Sist_Biblioteca.Diseños
             }
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -163,17 +191,13 @@ namespace Sist_Biblioteca.Diseños
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-
             addlibros();
-     
-
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             editlibros();
-     
+
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -187,7 +211,118 @@ namespace Sist_Biblioteca.Diseños
         private void button4_Click(object sender, EventArgs e)
         {
             dellibro();
-     
+
+        }
+
+
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "Titulo")
+            {
+                textBox2.Text = "";
+                textBox2.ForeColor = Color.LightGray;
+
+            }
+
+        }
+
+        private void Libros_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "Titulo";
+                textBox2.ForeColor = Color.White;
+            }
+        }
+
+        private void textBox3_Enter(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "Autor")
+            {
+                textBox3.Text = "";
+                textBox3.ForeColor = Color.LightGray;
+
+            }
+
+        }
+
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+            {
+                textBox3.Text = "Autor";
+                textBox3.ForeColor = Color.White;
+            }
+
+        }
+
+        private void textBox4_Enter(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "Editorial")
+            {
+                textBox4.Text = "";
+                textBox4.ForeColor = Color.LightGray;
+
+            }
+
+        }
+
+        private void textBox4_Leave(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "")
+            {
+                textBox4.Text = "Editorial";
+                textBox4.ForeColor = Color.White;
+            }
+
+        }
+
+        private void textBox5_Enter(object sender, EventArgs e)
+        {
+            if (textBox5.Text == "Existencia")
+            {
+                textBox5.Text = "";
+                textBox5.ForeColor = Color.LightGray;
+
+            }
+
+        }
+
+        private void textBox5_Leave(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "")
+            {
+                textBox4.Text = "Existencia";
+                textBox4.ForeColor = Color.White;
+            }
+
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "ID Libro")
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = Color.LightGray;
+
+            }
+
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "ID Libro";
+                textBox1.ForeColor = Color.White;
+            }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            buslibro();
         }
     }
 }

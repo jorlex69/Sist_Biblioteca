@@ -33,7 +33,6 @@
             groupBox2 = new GroupBox();
             button5 = new Button();
             textBox6 = new TextBox();
-            label6 = new Label();
             groupBox1 = new GroupBox();
             button4 = new Button();
             button3 = new Button();
@@ -43,9 +42,6 @@
             textBox3 = new TextBox();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
-            label5 = new Label();
-            label3 = new Label();
-            label2 = new Label();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
@@ -67,6 +63,8 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.BackgroundColor = Color.FromArgb(0, 192, 192);
+            dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(18, 242);
             dataGridView1.Name = "dataGridView1";
@@ -81,7 +79,6 @@
             // 
             groupBox2.Controls.Add(button5);
             groupBox2.Controls.Add(textBox6);
-            groupBox2.Controls.Add(label6);
             groupBox2.Location = new Point(465, 147);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(307, 71);
@@ -101,19 +98,15 @@
             // 
             // textBox6
             // 
+            textBox6.BackColor = Color.FromArgb(0, 192, 192);
+            textBox6.BorderStyle = BorderStyle.None;
             textBox6.Location = new Point(62, 23);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(121, 23);
+            textBox6.Size = new Size(121, 16);
             textBox6.TabIndex = 1;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(38, 32);
-            label6.Name = "label6";
-            label6.Size = new Size(18, 15);
-            label6.TabIndex = 0;
-            label6.Text = "ID";
+            textBox6.Text = "ID";
+            textBox6.Enter += textBox6_Enter;
+            textBox6.Leave += textBox6_Leave;
             // 
             // groupBox1
             // 
@@ -125,11 +118,7 @@
             groupBox1.Controls.Add(textBox3);
             groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(12, 24);
+            groupBox1.Location = new Point(12, 51);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(430, 197);
             groupBox1.TabIndex = 13;
@@ -177,79 +166,77 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(148, 123);
+            textBox4.BackColor = Color.FromArgb(0, 192, 192);
+            textBox4.BorderStyle = BorderStyle.None;
+            textBox4.Location = new Point(177, 123);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(136, 23);
+            textBox4.Size = new Size(136, 16);
             textBox4.TabIndex = 8;
+            textBox4.Text = "Carrera";
+            textBox4.Enter += textBox4_Enter;
+            textBox4.Leave += textBox4_Leave;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(148, 94);
+            textBox3.BackColor = Color.FromArgb(0, 192, 192);
+            textBox3.BorderStyle = BorderStyle.None;
+            textBox3.Location = new Point(177, 94);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(136, 23);
+            textBox3.Size = new Size(136, 16);
             textBox3.TabIndex = 7;
+            textBox3.Text = "Telefono";
+            textBox3.Enter += textBox3_Enter;
+            textBox3.Leave += textBox3_Leave;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(148, 65);
+            textBox2.BackColor = Color.FromArgb(0, 192, 192);
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Location = new Point(177, 65);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(136, 23);
+            textBox2.Size = new Size(136, 16);
             textBox2.TabIndex = 6;
+            textBox2.Text = "Ciudad";
+            textBox2.Enter += textBox2_Enter;
+            textBox2.Leave += textBox2_Leave;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(148, 37);
+            textBox1.BackColor = Color.FromArgb(0, 192, 192);
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.ForeColor = Color.Black;
+            textBox1.Location = new Point(177, 36);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(136, 23);
+            textBox1.Size = new Size(136, 16);
             textBox1.TabIndex = 5;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(85, 131);
-            label5.Name = "label5";
-            label5.Size = new Size(45, 15);
-            label5.TabIndex = 4;
-            label5.Text = "Carrera";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(78, 102);
-            label3.Name = "label3";
-            label3.Size = new Size(52, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Telefono";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(85, 73);
-            label2.Name = "label2";
-            label2.Size = new Size(45, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Ciudad";
+            textBox1.Text = "Nombre";
+            textBox1.Enter += textBox1_Enter;
+            textBox1.Leave += textBox1_Leave;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(79, 40);
+            label1.Font = new Font("Imprint MT Shadow", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(276, 6);
             label1.Name = "label1";
-            label1.Size = new Size(51, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Nombre";
+            label1.Size = new Size(285, 42);
+            label1.TabIndex = 17;
+            label1.Text = "ESTUDIANTE ";
             // 
             // frmestu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(0, 192, 192);
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
             Controls.Add(button6);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmestu";
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmestu";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -258,6 +245,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -267,7 +255,6 @@
         private GroupBox groupBox2;
         private Button button5;
         private TextBox textBox6;
-        private Label label6;
         private GroupBox groupBox1;
         private Button button4;
         private Button button3;
@@ -277,9 +264,6 @@
         private TextBox textBox3;
         private TextBox textBox2;
         private TextBox textBox1;
-        private Label label5;
-        private Label label3;
-        private Label label2;
         private Label label1;
     }
 }

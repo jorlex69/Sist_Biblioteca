@@ -36,8 +36,6 @@ namespace Sist_Biblioteca
                         string rol = lector["Rol"].ToString();
                         this.Hide();
                         MessageBox.Show("Bienvenido");
-
-                        // Abre el siguiente formulario y pasa el rol como argumento al constructor del formulario
                         Main_ form2 = new Main_(rol);
 
 
