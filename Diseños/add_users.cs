@@ -58,17 +58,17 @@ namespace Sist_Biblioteca.Diseños
             {
                 if (string.Equals(textBox3.Text, textBox4.Text, StringComparison.OrdinalIgnoreCase))
                 {
-                    if (val.AlgoritmoContraseña(textBox3.Text) == true)
-                    {
-                      
+                  
 
                             try
                             {
-                                cleantext();
-                                loadgrid();
+                           
                                 GestorUsuarios gestorUsuarios = new GestorUsuarios(connectionString);
                                 gestorUsuarios.AgregarUsuario(textBox1.Text, textBox2.Text, comboBox1.SelectedItem.ToString(), textBox3.Text);
-                            }
+
+                        cleantext();
+                        loadgrid();
+                    }
                             catch (Exception ex)
                             {
                                 MessageBox.Show("Error al agregar usuario: " + ex.Message);
@@ -76,11 +76,8 @@ namespace Sist_Biblioteca.Diseños
                         
                       
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Su Contraseña No Es Segura debe contener al menos mayus y min, num y caracteres");
-                    }
+                    
+               
                 }
                 else
                 {
